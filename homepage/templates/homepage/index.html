@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .card-img-top {
+            aspect-ratio: 1/.7;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="d-flex flex-wrap">
+        {% for img in image %}
+            {% if forloop.counter <= 4 %}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ img.image }}" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">{{ img.title }}</h5>
+                <a href="/news/{{img.slug}}" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+    <div class="text-center">
+        <a href="{% url 'news' %}" class="btn btn-primary">View All</a>
+    </div>
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js" integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

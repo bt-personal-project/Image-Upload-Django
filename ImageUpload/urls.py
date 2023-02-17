@@ -23,6 +23,7 @@ from NewsDetails import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('homepage.urls')),
+    path('tinymce/', include('tinymce.urls')),
     # path('news/<slug>', include('NewsDetails.urls')),
 ]
 

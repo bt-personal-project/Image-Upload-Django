@@ -19,8 +19,9 @@
         {% for img in image %}
             {% if forloop.counter <= 4 %}
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ img.image }}" alt="Card image cap">
+                <img class="card-img-top" src="{{ img.image.url }}" alt="Card image cap">
                 <div class="card-body">
+                <!-- <h5 class="card-title">{{ img.title|slice:":2" }}...</h5> -->
                 <h5 class="card-title">{{ img.title }}</h5>
                 <a href="/news/{{img.slug}}" class="btn btn-primary">Go somewhere</a>
                 </div>

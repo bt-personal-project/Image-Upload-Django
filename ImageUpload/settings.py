@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'homepage',
     'NewsDetails',
     'herosection',
+    'fixture',
     'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',

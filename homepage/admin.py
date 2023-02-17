@@ -6,7 +6,7 @@ class ImageAdmin(admin.ModelAdmin):
     # readonly_fields = ('id', 'img_preview')
     readonly_fields = ('id', 'img_preview')
     list_display = ["title", "img_preview", "image"]
-    pass
+    # pass
 
 # Register your models here.
 admin.site.register(ImageUpload, ImageAdmin)

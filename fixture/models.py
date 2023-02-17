@@ -14,3 +14,8 @@ class PremierLeagueTable(models.Model):
     drawGame = models.IntegerField()
     lossGame = models.IntegerField()
     totalPoints = models.IntegerField()
+
+    def __str__(self):
+        return self.teamName + ' ' + str(self.mactchPlayed)
+
+

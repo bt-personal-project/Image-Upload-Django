@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'homepage',
     'NewsDetails',
     'herosection',
+    'contactsection',
     'about',
     'fixture',
     'tinymce',

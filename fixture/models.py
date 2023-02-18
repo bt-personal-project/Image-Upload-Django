@@ -16,6 +16,7 @@ class PremierLeagueTable(models.Model):
     totalPoints = models.IntegerField()
 
     def __str__(self):
-        return self.teamName + ' ' + str(self.mactchPlayed)
+        # return self.teamName + ' ' + str(self.mactchPlayed)
+        return self.teamName
 
 

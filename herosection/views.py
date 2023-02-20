@@ -8,3 +8,4 @@ def herosection(request):
         'hero': hero,
     }
     return render(request, 'herosection/index.html', context)
+    # return render(request, 'temp.html', context)

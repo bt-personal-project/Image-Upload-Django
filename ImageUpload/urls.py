@@ -15,16 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from homepage import views
 from django.conf.urls.static import static
 from django.conf import settings
-from NewsDetails import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('homepage.urls')),
+    
     path('tinymce/', include('tinymce.urls')),
     # path('news/<slug>', include('NewsDetails.urls')),
+
+    # path('', include('gallery.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

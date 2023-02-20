@@ -13,14 +13,17 @@ def homepage(request):
     image = ImageUpload.objects.all()
     context = {'image': image}
 
-    return render(request, 'homepage/index.html', context )
+    # return render(request, 'homepage/index.html', context )
+    return render(request, 'index.html', context )
 
 def news(request):
     image = ImageUpload.objects.all()
     context = {'image': image}
-    return render(request, 'homepage/news.html', context)
+    # return render(request, 'homepage/news.html', context)
+    return render(request, 'news.html', context)
 
 
 def show_post(request, slug):
     post = ImageUpload.objects.get(slug=slug)
-    return render(request, 'homepage/inside.html', {'post': post})
+    # return render(request, 'homepage/inside.html', {'post': post})
+    return render(request, 'newsinner.html', {'post': post})

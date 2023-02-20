@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from gallery.models import GallerySection
 
-# Create your views here.
+def gallery(request):
+    gallery = GallerySection.objects.all()
+    context = {
+        'gallery': gallery
+    }
+    return render(request, 'index.html', context)

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'herosection',
     'contactsection',
     'about',
+    'gallery',
     'fixture',
     'tinymce',
     'django.contrib.admin',

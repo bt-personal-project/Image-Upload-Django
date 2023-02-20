@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'about',
     'gallery',
     'fixture',
+    'partners',
     'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',

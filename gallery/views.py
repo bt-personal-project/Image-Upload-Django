@@ -3,7 +3,7 @@ from gallery.models import GallerySection
 
 def gallery(request):
     gallery = GallerySection.objects.all()
-    context = {
+    context1 = {
         'gallery': gallery
     }
-    return render(request, 'index.html', context)
+    return render(request, 'index.html', context1) 

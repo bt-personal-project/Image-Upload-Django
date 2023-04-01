@@ -1,72 +1,236 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ManUtd Nepal</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        .card-img-top {
-            aspect-ratio: 1/.7;
-            object-fit: cover;
-        }
-    </style>
-</head>
-<body>
-    <!-- BASE TEMPLATES-->
-    <!-- HERO SECTION -->
-    <section>
-        {% for h in hero %}
-            {% if forloop.counter <= 2 %}
-                <img src="{{ h.heroImg.url }}" width="100%" height="400px" alt="HERO" />
-            {% endif %}
-        {% endfor %}
-    </section>
+{% extends 'base.html' %}
 
-    <!-- NEWS SECTION -->
-    <section>
+{% comment %} {% load static %} {% endcomment %}
+
+{% block news %}
+    <header>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="d-flex flex-wrap">
-                        {% for img in image %}
-                            {% if forloop.counter <= 4 %}
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="{{ img.image.url }}" alt="Card image cap">
-                                <div class="card-body">
-                                <h5 class="card-title">{{ img.title }}</h5>
-                                <a href="/news/{{img.slug}}" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                            {% endif %}
-                        {% endfor %}
+                    <div class="" style="display: flex; justify-content: center;">
+                        <img src="./assets/images/manutdnepal-logo.png" alt="OFFICIAL LOGO" style="height: 80px; width: 80px;">
                     </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVBAR -->
+    <div class="bg-black sticky-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container-fluid">
+                          <!-- <a class="navbar-brand" href="#">Home</a> -->
+                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="width: 100%; justify-content: center;">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="./index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'fixture' %}">Fixture</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'news' %}">News</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                                </li>
+                            </ul>
+                          </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carousel Slider -->
+    <section class="bt-carousel-slider">
+        <div id="" class="carousel slide bt-hero-carousel" data-bs-ride="carousel">
+            
+            <div class="carousel-inner">
+                {% comment %} {% for h in hc %} {% endcomment %}
+                <div class="carousel-item active">
+                    <img src="{{ hc.heroImg.url }}" class="d-block w-100 bt-slider-img" alt="Slider"/>
+                    <div class="bt-slider-overlay">
+                        <div class="container h-100">
+                            <div class="h-100 bt-hero-text-wrapper">
+                                <p class="bt-hero-text">FANS FROM NEPAL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% comment %} {% endfor %} {% endcomment %}
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- FIXTURE SECTION -->
+    <section class="bt-fixture bt-section-common">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
                     <div class="text-center">
-                        <a href="{% url 'news' %}" class="btn btn-primary">View All</a>
+                        <h3 class="bt-fixture__title bt-section-common-main__title">Fixture</h3>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="bt-fixture-league">
+                        <span class="bt-fixture-league__name">Premier league</span>
+                        <span class="bt-fixture-league__date">Sun, Jan 29</span>
+                    </p>
+                    <div class="bt-fixture-today">
+                        <div class="bt-fixture-today__team">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/800px-Manchester_United_FC_crest.svg.png" alt="FOOTBALL TEAM LOGO">
+                        </div>
+                        <p class="">VS</p>
+                        <div class="bt-fixture-today__team">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/1/11/Reading_FC.svg" alt="FOOTBALL TEAM LOGO">
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="bt-fixture__tbl table-responsive">
+                        <p>Premier league table</p>
+                        <!-- IFRAME TABLE HERE -->
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <a href="{% url 'fixture' %}" class="btn bt-common-btn bt-fixture-btn">All Fixture</a href="{% url 'fixture' %}">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
 
-    <!-- GALLERY -->
-    <section>
+
+     <!-- NEWS SECTION -->
+     <section class="bt-news bt-section-common">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <h3 class="bt-news__title bt-section-common-main__title">News</h3>
+                    </div>
+                </div>
+                 <!-- NEWS CONTENT -->
+                {% for img in image %}
+                {% if forloop.counter <= 4 %}
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <a class="card bt-news__card" href="/news/{{img.slug}}">
+                        <span class="bt_news__card-tag">Football</span>
+                        <img src="{{ img.image.url }}" class="card-img-top" alt="NEWS IMAGE">
+                        <div class="card-body bt-news__card-body">
+                          <h5 class="card-title bt-news__card-title">{{ img.title }}</h5>
+                          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                        </div>
+                    </a>
+                </div>
+                {% endif %}
+                {% endfor %}
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <a href="{% url 'news' %}" class="btn bt-common-btn">More News</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR PARTNERS -->
+    <section class="bt-partners bt-section-common">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <h3 class="bt-partners__title bt-section-common-main__title">Partners</h3>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="bt-partners__logo">
+                        {% for p in pc %}
+                        <div class="bt-partners__logo-img">
+                            <img src="{{p.image.url}}"  alt="PARTNERS LOGO" />
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery SECTION -->
+    <section class="bt-gallery bt-section-common">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <h3 class="bt-gallery__title bt-section-common-main__title">Gallery</h3>
+                    </div>
+                </div>
+                {% for g in gc %}
+                <div class="col-md-4">
+                    <div class="bt-gallery-wrapper">
+                        
+                            <a class="bt-gallery__section" href="{{ g.image.url }}" data-lightbox="bt-gallery-wrapper" data-type="image">
+                                <img src="{{ g.image.url }}" alt="GALLERY IMG">
+                            </a>
+                       
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <a class="btn bt-common-btn" href="{% url 'gallery' %}">More Gallery</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bt-footer bt-section-common">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div>
-                        {% for g in gallery %}
-                            <img src="{{ g.image.url }}" width="50%" height="200px" alt="HERO" style="object-fit: contain;" />
-                        {% endfor %}
+                        <h3 class="bt-footer__title">Follow Us</h3>
                     </div>
+                </div>
+                <div class="col-md-3">
+                    <a class="bt_footer__social-media" href="#">Facebook</a>
+                </div>
+                <div class="col-md-3">
+                    <a class="bt_footer__social-media" href="#">Twitter</a>
+                </div>
+                <div class="col-md-3">
+                    <a class="bt_footer__social-media" href="#">Instagram</a>
+                </div>
+                <div class="col-md-3">
+                    <a class="bt_footer__social-media" href="#">Gmail</a>
+                </div>
+                <hr class="my-4">
+                <div class="col-md-12">
+                    <p class="bt_footer__copyright">2023. Develop by Bishow Thapa.</p>
                 </div>
             </div>
         </div>
-    </section>
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js" integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</body>
-</html>
+    </footer>
+
+{% endblock %}

@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import ContactSection, ContactDetails
 
+def contact(request):
+    return render(request, 'contact.html')
+
 def contactsection(request):
     contact = ContactSection.objects.all()
     context = {

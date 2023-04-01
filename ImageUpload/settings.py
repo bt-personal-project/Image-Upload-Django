@@ -76,6 +76,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'gallery.context_processors.GalleryContext',
+                'herosection.context_processors.hero_context',
+                'partners.context_processors.partner_context',
+                'fixture.context_processors.fixture_context',
+                'about.context_processors.about_context',
             ],
         },
     },
@@ -144,6 +149,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

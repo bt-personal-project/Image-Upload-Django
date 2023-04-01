@@ -1,0 +1,335 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* font-family: 'Lato', sans-serif !important; */
+    font-family: 'Poppins', sans-serif !important;;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
+}
+
+header {
+    padding: 2px 0;
+}
+
+/*****************************************************/
+.navbar-light .navbar-toggler-icon {
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-light .navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+/*****************************************************/
+
+.nav-link {
+    display: inline-block!important;
+    color: white!important;
+    font-size: 1.03em!important;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.nav-item:not(:last-child) {
+    margin-right: 8px;
+    /* background: red; */
+}
+
+a.nav-link.active::after {    
+    content: '';
+    display: block;
+    height: 2px;
+    width: 60%;
+    margin-top: 5px;
+    background: white; 
+}
+
+
+/************************ COMMON **********************************/
+
+.bt-section-common {
+    padding: 4em 0;
+}
+
+.bt-section-common-main__title {
+    display: inline-block;
+    font-size: 1.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 2em;
+}
+
+.bt-section-common-main__title::after {
+    content: '';
+    height: 12px;
+    display: block;
+    background: url(../images/munp-brush.svg) center/contain no-repeat;
+}
+
+.bt-common-btn {
+    color: #ffffff!important;
+    background: #FB0909!important;
+    border-radius: 30px!important;
+    padding: 0.4em 1.4em!important;
+    text-transform: uppercase;
+    box-shadow: 0 1px 2px 0px #6c6c6c;
+    margin-top: 1em;
+}
+
+.bt-common-btn:hover {
+    background: #b80b0b!important;
+}
+
+/*********************** HERO SECTION *******************************/
+
+.bt-slider-img {
+    aspect-ratio: 2/0.7;
+    object-fit: cover;
+}
+
+.bt-slider-overlay {
+    position: absolute;
+    top: 0;
+    color: #ffffff;
+    background: rgba(0,0,0,0.4);
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.bt-hero-text-wrapper {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 2.3em;
+}
+
+.bt-hero-text {
+    background: #FFBD13;
+    font-weight: bold;
+    padding: 0 .6em;
+}
+
+@media only screen and (max-width: 767px) {
+    .bt-carousel-slider .bt-slider-img {
+      height: 400px !important;
+    }
+  }
+
+/************************* FIXTURE *********************************/
+
+.bt-fixture {
+    background: url(../images/munp-patter.svg) no-repeat center;
+}
+
+.bt-fixture-today {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 3em 0;
+}
+
+.bt-fixture-today p {
+    font-weight: 600;
+}
+
+.bt-fixture-today__team > img {
+    aspect-ratio: 1/1;
+    height: 100px;
+    width: 100%;
+}
+
+/****/
+
+.bt-fixture-league {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.bt-fixture-league__name {
+    color: #F32828;
+    margin-right: 1em;
+}
+
+/********/
+.bt-fixture__tbl {
+    color: #ffffff;
+    padding: 1.6em;
+    background: #212529;
+}
+
+tbody, th {
+    font-weight: 300;
+}
+/*************************** NEWS *****************************/
+
+.bt-news {
+    /* background: #F2F2F0; */
+    background: #d7d7d7;
+}
+
+.bt-news__card {
+    margin-bottom: 1.8em;
+    text-decoration: none;
+    color: #000000;
+    overflow: hidden;
+    border: 0!important;
+}
+
+.bt-news__card:hover {
+    color: #000000;
+    box-shadow: 0px 0px 9px 0px #666666;
+}
+
+.bt-news__card:hover .bt_news__card-tag {
+    background: #b80b0b;
+}
+
+.bt-news__card img {
+    aspect-ratio: 2/1.4;
+}
+
+.bt-news__card-title {
+    font-size: 1.02em;
+    line-height: 1.4;
+    margin: 0!important;
+}
+
+.bt_news__card-tag {
+    position: absolute;
+    color: #ffffff;
+    background: #000000;
+    padding: 0.1em 0.2em;
+}
+
+/*************************** PARTNERS ****************************/
+
+.bt-partners__logo {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.bt-partners__logo-img {
+    /* flex-basis: 30%; */
+    flex-basis: 334px;
+    margin-bottom: 2em;
+}
+
+.bt-partners__logo-img img {
+    height: 80px;
+    max-height: 80px;
+    width: 80%;
+    /* width: auto; */
+    object-fit: contain;
+}
+
+/************************ GALLERY *****************************/
+
+.bt-gallery {
+    background: #d7d7d7;;
+}
+
+.bt-gallery-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+}
+
+.bt-gallery__section {
+    /* flex-basis: 33.33%; */
+    flex-basis: 370px;
+    flex-grow: 1;
+}
+
+.bt-gallery__section img {
+    width: 100%;
+}
+
+/************************************ FOOTER ********************************/
+
+.bt-footer {
+    color: #ffffff;
+    background: #000000;
+}
+
+.bt-footer__title {
+    display: inline-block;
+    padding: .1em .4em;
+    text-transform: uppercase;
+    margin-bottom: 2em;
+    background: #b80b0b;
+}
+
+.bt_footer__social-media {
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    /* For anchor tag */
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/* For anchor tag */
+.bt_footer__social-media:hover {
+    color: #FFFFFF;
+}
+
+.bt_footer__copyright {
+    text-align: center;
+    font-size: 0.9em;
+}
+
+
+/*********************************************************************************/
+/* ABOUT */
+/*********************************************************************************/
+
+.bt-about__img img {
+    width: 100%;
+    aspect-ratio: 2/1.6;
+}
+
+.bt-about__description {
+    padding: 3em 0;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+
+/***********************************************************************************/
+/* CONTACT */
+/***********************************************************************************/
+
+.bi-facebook, .bi-twitter, .bi-instagram {
+    font-size: 2.4em;
+}
+
+.bt-contact__sm--wrapper:not(:last-child) {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.bi-facebook {
+    color: #3b5998;
+}
+
+.bi-twitter {
+    color: #00acee;
+}
+
+.bi-instagram {
+    color: 	#DD2A7B ;
+}

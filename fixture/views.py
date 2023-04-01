@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from .models import FixtureSection, PremierLeagueTable
 
-# Create your views here.
+
+def fixture(request):
+    return render(request, 'fixture.html')
+
 def fixturesection(request):
     fixture = FixtureSection.objects.all()
 
@@ -19,3 +22,5 @@ def premierleaguetable(request):
     }
 
     return render(request, 'fixture/index.html', context)
+
+

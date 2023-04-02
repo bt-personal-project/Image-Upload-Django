@@ -3,6 +3,9 @@ from django.http import Http404, HttpResponse
 from homepage.models import ImageUpload
 # from .models import POST
 
+def index(request):
+    return render(request, 'index.html')
+
 def homepage(request):
     # image = ImageUpload.objects.get(pk=image_id)
     # if image is not None:
@@ -14,7 +17,7 @@ def homepage(request):
     context = {'image': image}
 
     # return render(request, 'homepage/index.html', context )
-    return render(request, 'index.html', context )
+    return render(request, 'index.html', context)
 
 def news(request):
     image = ImageUpload.objects.all()

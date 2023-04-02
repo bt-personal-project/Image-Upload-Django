@@ -1,19 +1,7 @@
 {% extends 'base.html' %}
 
-{% comment %} {% load static %} {% endcomment %}
 
-{% block news %}
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="" style="display: flex; justify-content: center;">
-                        <img src="./assets/images/manutdnepal-logo.png" alt="OFFICIAL LOGO" style="height: 80px; width: 80px;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+{% block contents %}
 
     <!-- NAVBAR -->
     <div class="bg-black sticky-top">
@@ -22,14 +10,14 @@
                 <div class="col-md-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <div class="container-fluid">
-                          <!-- <a class="navbar-brand" href="#">Home</a> -->
-                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <!-- <a class="navbar-brand" href="#">Home</a> -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="width: 100%; justify-content: center;">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="./index.html">Home</a>
+                                    <a class="nav-link active" href="{% url 'index'%}">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'fixture' %}">Fixture</a>
@@ -47,14 +35,15 @@
                                     <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                                 </li>
                             </ul>
-                          </div>
+                        </div>
                         </div>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
-
+    
+    
     <!-- Carousel Slider -->
     <section class="bt-carousel-slider">
         <div id="" class="carousel slide bt-hero-carousel" data-bs-ride="carousel">
@@ -129,7 +118,7 @@
                     </div>
                 </div>
                  <!-- NEWS CONTENT -->
-                {% for img in image %}
+                {% for img in imagecontext %}
                 {% if forloop.counter <= 4 %}
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <a class="card bt-news__card" href="/news/{{img.slug}}">

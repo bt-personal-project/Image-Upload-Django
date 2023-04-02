@@ -72,7 +72,8 @@ a.nav-link.active::after {
     content: '';
     height: 12px;
     display: block;
-    background: url(../images/munp-brush.svg) center/contain no-repeat;
+    /* background: url(../images/munp-brush.svg) center/contain no-repeat; */
+    background: url(/assets/images/munp-brush.svg) center/contain no-repeat;
 }
 
 .bt-common-btn {

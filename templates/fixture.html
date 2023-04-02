@@ -1,7 +1,92 @@
-{% for f in fs %}
-    
-    <p>Home Team: <span>{{f.homeTeamTitle}}</span></p>
-    <p>Away Team: <span>{{f.awayTeamTitle}}</span></p>
-{% endfor %}
+{% extends 'base.html' %}
 
-<h1>Hello, This is a fixture</h1>
+{% block contents %}
+
+    <!-- NAVBAR -->
+    <div class="bg-black sticky-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container-fluid">
+                        <!-- <a class="navbar-brand" href="#">Home</a> -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="width: 100%; justify-content: center;">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'index'%}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{% url 'fixture' %}">Fixture</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'news' %}">News</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIXTURE SECTION -->
+    <section class="bt-fixture bt-section-common">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <h3 class="bt-fixture__title bt-section-common-main__title">Fixture</h3>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="bt-fixture-league">
+                        <span class="bt-fixture-league__name">Premier league</span>
+                        <span class="bt-fixture-league__date">Sun, Jan 29</span>
+                    </p>
+                    <div class="bt-fixture-today">
+                        <div class="bt-fixture-today__team">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/800px-Manchester_United_FC_crest.svg.png" alt="FOOTBALL TEAM LOGO">
+                        </div>
+                        <p class="">VS</p>
+                        <div class="bt-fixture-today__team">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/1/11/Reading_FC.svg" alt="FOOTBALL TEAM LOGO">
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="bt-fixture__tbl table-responsive">
+                        <p>Premier league table</p>
+                        <!-- IFRAME TABLE HERE -->
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <a href="{% url 'fixture' %}" class="btn bt-common-btn bt-fixture-btn">All Fixture</a href="{% url 'fixture' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% for f in fs %}
+        <p>Home Team: <span>{{f.homeTeamTitle}}</span></p>
+        <p>Away Team: <span>{{f.awayTeamTitle}}</span></p>
+    {% endfor %}
+{% endblock %}
+
+

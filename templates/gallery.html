@@ -1,6 +1,73 @@
-{% for g in gc %}
-    <img src="{{ g.image.url }}" width="50%" height="200px" alt="HERO" style="object-fit: contain;" />
-{% endfor %}
+{% extends 'base.html' %}
 
+{% block contents %}
+    <!-- NAVBAR -->
+    <div class="bg-black sticky-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container-fluid">
+                        <!-- <a class="navbar-brand" href="#">Home</a> -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="width: 100%; justify-content: center;">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'index'%}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'fixture' %}">Fixture</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'news' %}">News</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{% url 'gallery' %}">Gallery</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+{% comment %} 
+    {% for g in gc %}
+        <img src="{{ g.image.url }}" width="50%" height="200px" alt="HERO" style="object-fit: contain;" />
+    {% endfor %} {% endcomment %}
 
-<p> HELLO GALLERY</p>
+    <!-- Gallery SECTION -->
+    <section class="bt-gallery bt-section-common">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <h3 class="bt-gallery__title bt-section-common-main__title">Gallery</h3>
+                    </div>
+                </div>
+                {% for g in gc %}
+                <div class="col-md-4">
+                    <div class="bt-gallery-wrapper">
+                        
+                            <a class="bt-gallery__section" href="{{ g.image.url }}" data-lightbox="bt-gallery-wrapper" data-type="image">
+                                <img src="{{ g.image.url }}" alt="GALLERY IMG">
+                            </a>
+                       
+                    </div>
+                </div>
+                {% endfor %}
+            
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

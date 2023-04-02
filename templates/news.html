@@ -1,21 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ManUtd Nepal</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        .card-img-top {
-            aspect-ratio: 1/.7;
-            object-fit: cover;
-        }
-    </style>
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <div class="d-flex flex-wrap">
+{% block contents %}
+
+    <!-- NAVBAR -->
+    <div class="bg-black sticky-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container-fluid">
+                        <!-- <a class="navbar-brand" href="#">Home</a> -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="width: 100%; justify-content: center;">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'index'%}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'fixture' %}">Fixture</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{% url 'news' %}">News</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- NEWS SECTION -->
+    <section class="bt-news bt-section-common">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <h3 class="bt-news__title bt-section-common-main__title">News</h3>
+                    </div>
+                </div>
+                 <!-- NEWS CONTENT -->
+                {% for img in image %}
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <a class="card bt-news__card" href="/news/{{img.slug}}">
+                        <span class="bt_news__card-tag">Football</span>
+                        <img src="{{ img.image.url }}" class="card-img-top" alt="NEWS IMAGE">
+                        <div class="card-body bt-news__card-body">
+                          <h5 class="card-title bt-news__card-title">{{ img.title }}</h5>
+                          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+                {% comment %} <div class="col-md-12">
+                    <div class="text-center">
+                        <a href="{% url 'news' %}" class="btn bt-common-btn">More News</a>
+                    </div>
+                </div> {% endcomment %}
+            </div>
+        </div>
+    </section>
+
+    {% comment %} <div class="d-flex flex-wrap">
         {% for img in image %}
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{{ img.image }}" alt="Card image cap">
@@ -24,15 +84,7 @@
                 <a href="/news/{{img.slug}}" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
-        {% endfor %}
-        
-    </div>
-    <!-- <div class="text-center">
-        <a href="{% url 'news' %}" class="btn btn-primary">View All</a>
-    </div> -->
-    
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js" integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</body>
-</html>
+        {% endfor %}        
+    </div> {% endcomment %}
+
+{% endblock %}

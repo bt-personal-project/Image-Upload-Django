@@ -81,6 +81,8 @@ TEMPLATES = [
                 'partners.context_processors.partner_context',
                 'fixture.context_processors.fixture_context',
                 'about.context_processors.about_context',
+                'homepage.context_processors.news_context',
+                'contactsection.context_processors.contact_context',
             ],
         },
     },

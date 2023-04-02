@@ -1,1 +1,68 @@
-<h1>About Section testing</h1>
+{% extends 'base.html' %}
+
+{% block contents %}
+    <!-- NAVBAR -->
+    <div class="bg-black sticky-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container-fluid">
+                        <!-- <a class="navbar-brand" href="#">Home</a> -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="width: 100%; justify-content: center;">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'index'%}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'fixture' %}">Fixture</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'news' %}">News</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{% url 'about' %}">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <section class="bt-about bt-section-common">
+        <div class="container">
+            <div class="row">
+                
+                {% for ac in aboutcontext %}
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <h3 class="bt-news__title bt-section-common-main__title">{{ ac.title }}</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{{ ac.image }}" alt="our team" width="100%"/>
+                    </div>
+                    <div class="col-md-6">
+                        {{ac.description }}
+                    </div>
+                {% endfor %}
+                <div class="col-md-12">
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -20,6 +20,9 @@ class ImageUpload(models.Model):
     def __str__(self):
         # return  'Title ' + ': ' + self.title[:2] + '...' 
         return  'Title ' + ': ' + self.title
+    
+    class Meta:
+        get_latest_by = 'id'
 
     
 

@@ -54,26 +54,54 @@
                     </div>
                 </div>
                  <!-- NEWS CONTENT -->
-                {% for img in image %}
+                {% for img in imagecontext %}
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <a class="card bt-news__card" href="/news/{{img.slug}}">
                         <span class="bt_news__card-tag">Football</span>
                         <img src="{{ img.image.url }}" class="card-img-top" alt="NEWS IMAGE">
                         <div class="card-body bt-news__card-body">
-                          <h5 class="card-title bt-news__card-title">{{ img.title }}</h5>
-                          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            <h5 class="card-title bt-news__card-title">{{ img.title }}</h5>
                         </div>
                     </a>
                 </div>
                 {% endfor %}
-                {% comment %} <div class="col-md-12">
-                    <div class="text-center">
-                        <a href="{% url 'news' %}" class="btn bt-common-btn">More News</a>
-                    </div>
-                </div> {% endcomment %}
+                
+                <div class="col-md-12">
+                    <nav class="d-flex justify-content-center" aria-label="manutdnepal pagination">
+                        <ul class="pagination">
+                        {% if imagecontext.has_previous %}
+                            <li class="page-item"><a class="page-link" href="/news?page={{imagecontext.previous_page_number}}">Previous</a></li>
+                        {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="">Previous</a></li>
+                        {% endif %}
+
+                        <!-- Pagination number -->
+                            {% for num_page in imagecontext.paginator.page_range %}
+                                {% if imagecontext.number == num_page %}
+                                    <li class="page-item">
+                                        <a class="page-link active" href="{% url 'news' %}?page={{num_page}}">{{num_page}}</a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="{% url 'news' %}?page={{num_page}}">{{num_page}}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            <!-- -->
+
+                        {% if imagecontext.has_next %}
+                            <li class="page-item"><a class="page-link" href="/news?page={{imagecontext.next_page_number}}">Next</a></li>
+                        {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="">Next</a></li>
+                        {% endif %}
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </section>
+
+    
 
     {% comment %} <div class="d-flex flex-wrap">
         {% for img in image %}
